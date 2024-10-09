@@ -57,7 +57,7 @@ maintained its design approach, balancing feedback with the practical constraint
 assumptions of the system.
 
 # Project Outline
-Overview:
+
 The main object of this project is to provide consumers with a straightforward way to look and
 book their flights. Users are able to look up seat tickets, receive information on ticket prices, and
 browse flight options available at various times on a given date using this database. It stores all
@@ -65,4 +65,5 @@ the available flights and seats that are needed to plan a trip and will store, o
 manage a database of multiple flights. The system is scalable to support regional airlines
 running 400 flights with 8000 seats at a time.
 
-
+# Project Proposal with Photo Demonstration
+[Project Proposal Final copy.pdf](https://github.com/user-attachments/files/17301276/Project.Proposal.Final.copy.pdf)
