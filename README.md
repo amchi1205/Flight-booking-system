@@ -1,5 +1,4 @@
 # Flight-booking-system
-
 Principal Back End - Andrew Chi
 
 Principal Front End - Eric McElhinny
