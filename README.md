@@ -1,7 +1,7 @@
 # Flight-booking-system
 A web-based application for booking and managing flight reservations. Built with Python and Flask, this project allows users to search for flights, manage bookings, and securely authenticate.
 
-Executive Summary
+# Executive Summary
 The project underwent significant simplification by removing the Passengers, Reservations, and
 Invoices entities, streamlining the system to allow only one seat purchase at a time from the
 database's perspective. Relationships between Seats and Flights, as well as Seats and Travel
