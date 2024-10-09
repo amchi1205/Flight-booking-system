@@ -51,3 +51,298 @@ Additionally, feedback regarding transitive dependency in the Airports table was
 as the database lacks the necessary information to make such inferences. Overall, the project
 maintained its design approach, balancing feedback with the practical constraints and
 assumptions of the system.
+
+Project Outline
+Overview:
+The main object of this project is to provide consumers with a straightforward way to look and
+book their flights. Users are able to look up seat tickets, receive information on ticket prices, and
+browse flight options available at various times on a given date using this database. It stores all
+the available flights and seats that are needed to plan a trip and will store, organize, and
+manage a database of multiple flights. The system is scalable to support regional airlines
+running 400 flights with 8000 seats at a time.
+Database Outline
+● Airports: records the location details of potentially serviced airports
+○ Airport
+ID: PK, INT , not null, AI
+_
+○ Airport
+_
+Name: VARCHAR(100), not null
+○ Airport
+_
+City: VARCHAR(100), not null
+○ Airport
+_
+Country: VARCHAR(100), not null
+■ Airport Relationships:
+● A 1:M (Optional) between Airports and Flights is implemented,
+with Origin
+_
+Airport
+_
+ID as a FK in Flights.
+● A 1:M (Optional) between Airports and Flights is implemented,
+with Destination
+_
+Airport
+_
+ID as a FK in Flights.
+● Flights: records the departure and arrival information for a specific flight
+○ Flight
+ID: PK, INT , not null, AI
+_
+○ Origin
+_
+Airport
+ID: INT , FK
+_
+○ Destination
+_
+Airport
+ID: INT , FK
+_
+○ Departure
+Date
+Time: DateTime, not null
+_
+_
+○ Arrival
+Date
+Time: DateTime, not null
+_
+_
+○ Airplane
+_
+Type
+ID: INT , FK
+_
+■ Flights Relationships:
+● A M (Optional):1 between Flights and Airports is implemented with
+Origin
+_
+Airport
+_
+ID as a FK in Flight
+Details.
+_
+● A M (Optional):1 between Flights and Airports is implemented,
+with Destination
+_
+Airport as a FK in Flight
+Details.
+_
+● A M (Optional):1 between Flights and Airplane
+_
+Types is
+implemented with Airplane
+_
+Type
+_
+ID as a FK in Flights.
+● A 1:M (Optional) between Flights and Seats is implemented with
+Flight
+ID as a FK in Seats.
+_
+● Seats: records the specific seat reserved for a reservation. A constraint is placed to limit
+the number of seats of a specific class on a specific flight to the number available on the
+flight’s plane type
+○ Seat
+ID: PK, INT , not null, AI
+_
+○ Seat
+_
+Number: VARCHAR(100), not null
+○ Travel
+Class
+ID: INT , FK
+_
+_
+○ Flight
+ID: INT , FK
+_
+○ Available: TINYINT , not null
+○ Passenger
+_
+Name: VARCHAR(100)
+■ Seats Relationships:
+● A M (Optional):1 (Optional) between Seats and Travel
+Classes is
+_
+implemented with Travel
+Class
+ID as a FK in Seats._
+_
+● A 1:M (Optional) between Flights and Seats is implemented with
+Flight
+_
+ID as a FK in Seats.
+● Travel
+Classes: differentiates seats based on comfort and cost
+_
+○ Travel
+Class
+ID: PK, INT , not null, AI
+_
+_
+○ Travel
+Class
+_
+_
+Name: VARCHAR(100), not null
+○ Travel
+Class
+_
+_
+Cost: Decimal(20,2), not null
+■ Travel
+_
+Class Relationships:
+● A 1 (Optional) :M (Optional) between Travel
+Classes and Seats is
+_
+implemented with Travel
+Class
+ID as a FK in Seats.
+_
+_
+● A M:M between Travel
+_
+Classes and Airplane
+_
+Types is
+implemented with Airplane
+Travel
+Classes as a Junction T able
+_
+_
+○ A 1:M (Optional) between Travel
+Classes and
+_
+Airplane
+Travel
+_
+_
+Classes is implemented with
+Travel
+Classes
+_
+_
+ID as a FK in Airplane
+Travel
+Classes.
+_
+_
+● Airplane
+_
+Types: records the types of airplanes in the fleet
+○ Airplane
+_
+Type
+ID: PK, INT , not null, AI
+_
+○ Aiplane
+_
+Type: VARCHAR(100), not null
+■ Airplane
+_
+Types Relationships:
+● A 1:M (Optional) between Airplane
+_
+Types and Flights is
+implemented with Airplane
+_
+Type
+_
+ID as a FK in Flights.
+● A M:M between Travel
+_
+Class and Airplane
+_
+Types is implemented
+with Airplane
+Travel
+Classes as a Junction T able
+_
+_
+○ A 1:M (Optional) between Airplane
+_
+Types and
+Airplane
+Travel
+_
+_
+Classes is implemented with
+Airplane
+_
+Type
+_
+ID as a FK in Airplane
+Travel
+Classes.
+_
+_
+● Airplane
+Travel
+_
+_
+Classes: used to link the number of each seat class are present on
+each plane type
+○ Airplane
+Travel
+Classes
+ID: PK, INT , not null, AI
+_
+_
+_
+○ Airplane
+_
+Type
+ID: INT , FK
+_
+○ Travel
+Class
+ID: INT , FK
+_
+_
+○ Travel
+Class
+_
+_
+Capacity: BIGINT
+■ Airplane
+Travel
+_
+_
+Classes Relationships:
+● A M (Optional):1 between Airplane
+Travel
+_
+_
+Travel
+_
+Classes is implemented with Travel
+Classes and
+Class
+ID as a FK in
+_
+_
+Airplane
+Travel
+Classes.
+_
+_
+● A M (Optional):1 between Airplane
+Travel
+_
+_
+Airplane
+_
+Types is implemented with Airplane
+Classes and
+Types
+ID as a FK in
+_
+_
+Airplane
+_
+Types.
