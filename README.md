@@ -1,4 +1,8 @@
 # Flight-booking-system
+
+Principal Back End - Andrew Chi
+Principal Front End - Eric McElhinny
+
 A web-based application for booking and managing flight reservations. Built with Python and Flask, this project allows users to search for flights, manage bookings, and securely authenticate.
 
 # Executive Summary
@@ -60,6 +64,5 @@ browse flight options available at various times on a given date using this data
 the available flights and seats that are needed to plan a trip and will store, organize, and
 manage a database of multiple flights. The system is scalable to support regional airlines
 running 400 flights with 8000 seats at a time.
-[Project Proposal Final (dragged).pdf](https://github.com/user-attachments/files/17301262/Project.Proposal.Final.dragged.pdf)
 
 
