@@ -3,7 +3,7 @@ Principal Back End - Andrew Chi
 
 Principal Front End - Eric McElhinny
 
-A web-based application for booking and managing flight reservations. Built with Python and Flask, this project allows users to search for flights, manage bookings, and securely authenticate.
+A web-based application for booking and managing flight reservations. Built with Python, Flask, and SQL, this project allows users to search for flights, manage bookings, and securely authenticate.
 
 # Executive Summary
 The project underwent significant simplification by removing the Passengers, Reservations, and
